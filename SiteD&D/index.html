@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ordem Paranormal — Recrutamento</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <audio id="musica" loop>
+        <source src="audio/musica.mp3" type="audio/mpeg">
+    </audio>
+    <!-- =====================================
+         TELA INICIAL
+    ====================================== -->
+
+    <section id="telaInicial" class="tela-inicial" aria-label="Tela inicial">
+
+        <!-- Partículas animadas ficam atrás de todos os elementos -->
+        <canvas id="particulas" class="particulas" aria-hidden="true"></canvas>
+
+        <!-- Molduras decorativas -->
+        <img class="moldura moldura-esquerda" src="img/moldura-esquerda.png" alt="" aria-hidden="true">
+
+        <img class="moldura moldura-direita" src="img/moldura-direita.png" alt="" aria-hidden="true">
+
+        <!-- Logo / botão de entrada -->
+        <button id="simboloEntrada" class="simbolo-entrada" aria-label="Entrar no questionário">
+            <img src="img/logo-dd.png" alt="D&D — Entrar">
+        </button>
+
+    </section>
+
+
+    <!-- =====================================
+         CONTEÚDO PRINCIPAL
+    ====================================== -->
+
+    <main id="conteudo" class="pagina pergaminho">
+
+        <!-- SÍMBOLO NO TOPO -->
+
+        <section class="simbolo-topo">
+
+            <img src="img/logo-dd.png" alt="Símbolo da Ordem">
+
+        </section>
+
+
+        <!-- INTRODUÇÃO -->
+
+        <section class="introducao">
+
+            <h1><strong>Saudações, Aventureiro(a).</strong></h1>
+
+            <p>
+                Antes de sua jornada começar, a Guilda precisa conhecer melhor quem busca seus serviços, tanto o herói quanto a pessoa por trás do equipamento. Suas respostas nos ajudarão a preparar desafios à altura e tecer uma história que valha a pena ser contada.
+            </p>
+        </section>
+
+
+        <!-- TERMO -->
+
+        <section class="termo">
+
+            <h2>Termo de Autorização de Dados</h2>
+
+            <p>
+                Ao preencher este formulário, O(A) Aventureiro declara estar ciente e autoriza a coleta das seguintes informações pessoais: <strong>Nome Completo, Idade, Possiveis Gatilhos Mentais, Instagram.</strong>
+            </p>
+
+            <p>
+                <strong>Finalidade:</strong><br>
+                Os dados serão usados exclusivamente para as atividades de organização da campanha, incluindo:
+            </p>
+
+            <ul>
+                <li>Contato para explicação de regras;</li>
+                <li>Criação de ficha e explicação das atividades da campanha;</li>
+                <li>Comunicação entre a equipe de organização e os jogadores.</li>
+            </ul>
+
+            <p>
+                <strong>Confidencialidade:</strong ><br>
+                A guilda garante que as informações providenciadas serão usadas apenas e somente com a intenção de conversar e organizar as atividades da campanha.
+            </p>
+
+            <p>
+                <strong>Direitos:</strong><br>
+                O Aventureiro(a) terá total liberdade de requisitar que suas informações sejam excluidas a qualquer momento.
+            </p>
+
+
+            <!-- CONSENTIMENTO -->
+
+            <div class="consentimento">
+
+                <label class="checkbox-container">
+
+                    <input type="checkbox" id="consentimento">
+
+                    <span class="checkmark"></span>
+
+                    <span class="texto-checkbox">
+                        Ao marcar a opção de consentimento, confirmo que li,
+                        compreendi e concordo com os termos acima.
+                    </span>
+
+                </label>
+
+            </div>
+
+
+            <!-- BOTÃO -->
+
+            <div class="proximo-container">
+
+                <button
+                    id="botaoProsseguir"
+                    class="botao"
+                    disabled
+                >
+                    PROSSEGUIR
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             QUESTIONÁRIO — TELA 1
+        ====================================== -->
+        <div class="titulo-questionario">
+            <h2>Ficha de Inscrição da Guilda dos Aventureiros</h2>
+        </div>
+        <section id="questionario1" class="questionario">
+
+
+            <!-- IDENTIFICAÇÃO -->
+
+            <div class="campo">
+
+                <label for="nomeCompleto">
+                    Nome Completo
+                </label>
+
+                <input
+                    type="text"
+                    id="nomeCompleto"
+                    name="nomeCompleto"
+                    placeholder="Digite seu nome completo"
+                >
+
+            </div>
+
+            <div class="campo">
+
+                <label for="idade">
+                    Idade
+                </label>
+
+                <input
+                    type="number"
+                    id="idade"
+                    name="idade"
+                    placeholder="Digite sua idade"
+                    min="1"
+                >
+
+            </div>
+
+            <!-- EXPERIÊNCIA COM D&D -->
+
+            <div class="campo experiencia">
+
+                <label>
+                    Qual seu nível de experiência com Dungeons & Dragons?
+                </label>
+
+                <div class="opcoes-experiencia">
+
+                    <!-- Cada opção será selecionável pelo jogador -->
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="experiencia"
+                            value="O que é Dungeons & Dragons?"
+                        >
+                        <span>O que é Dungeons & Dragons?</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="experiencia"
+                            value="Aventureiro Iniciante"
+                        >
+                        <span>Aventureiro Iniciante</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="experiencia"
+                            value="Aventureiro Experiente"
+                        >
+                        <span>Aventureiro Experiente</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="experiencia"
+                            value="Mestre das Masmorras"
+                        >
+                        <span>Mestre das Masmorras</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="experiencia"
+                            value="Arquimago"
+                        >
+                        <span>Arquimago</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOTÃO PARA A PRÓXIMA TELA -->
+
+            <div class="proximo-container">
+
+                <button
+                    id="botaoQuestionario1"
+                    class="botao"
+                >
+                    CONTINUAR
+                </button>
+
+            </div>
+
+        </section>
+        <!-- =====================================
+             QUESTIONÁRIO — TELA 2
+        ====================================== -->
+        <section id="questionario02" class="questionario">
+
+            <!-- Missão durante todo o evento -->
+
+            <div class = "campo">
+                <label for="duracao">
+                    Você deseja participar de uma missão com duração durante todo o evento (8h às 12h), sabendo que não poderá participar de demais atividades e deverá chegar no horário e não poderá sair antecipadamente?
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="tempoDeJogo"
+                        value="sim"
+                    >
+                    <span>Sim</span>
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="tempoDeJogo"
+                        value="nao"
+                    >
+                    <span>Não</span>
+                </label>
+            </div>
+                <!--@INSTAGRAM-->
+
+            <div class="campo">
+                <label for="instagram">
+                    Esta campanha será uma One-Shot, e a construção de fichas precisa ser feita previamente. Coloque seu @ do Instagram para entrar no grupo da sessão e receber instruções sobre a ficha e informações adicionais.
+                </label>
+                <input
+                    type="text"
+                    name="instagram"
+                    id="instagram"
+                    placeholder="Digite seu @ do instagram"
+                >
+            </div>
+
+
+            <div class="proximo-container">
+
+                <button
+                    id="botaoQuestionario2"
+                    class="botao"
+                >
+                    Finalizar
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Tela Final -->
+        <section id="mensagemInicio" 
+        class="mensagem-inicio">
+            <div class="simbolo-final">
+                <img src="img/logo-dd.png" alt="Símbolo da Ordem">
+            </div>
+            <p>
+                Sua próxima aventura acontecerá em 24 de outubro às 8:00 da manhã. Não esqueça seus equipamento.
+            </p>
+        </section>
+
+        <section id="avisoFas" class="aviso-fas">
+
+            <p>
+                <span>Aviso sobre Conteúdo de Fã — Dungeons & Dragons</span><br>
+
+
+Este evento e a inscrição para participação nesta mesa de RPG são totalmente gratuitos e constituem uma iniciativa independente criada por fãs, utilizando elementos do universo de Dungeons & Dragons (D&D) de forma não oficial.<br>
+A atividade não possui qualquer vínculo oficial, parceria, aprovação, supervisão ou endosso da Wizards of the Coast, detentora dos direitos relacionados a Dungeons & Dragons.<br>
+Todo o conteúdo desenvolvido para esta mesa tem finalidade exclusivamente recreativa e não comercial. Nenhum participante será cobrado pela inscrição ou participação na atividade.<br>
+Também não será utilizado o nome, imagem ou voz de pessoas reais de maneira difamatória ou que viole direitos de personalidade, tampouco serão atribuídas a indivíduos reais falas, ações ou posicionamentos que não tenham sido praticados por eles.<br>
+O evento não utilizará conteúdos protegidos por terceiros sem a devida autorização e respeitará os direitos de propriedade intelectual aplicáveis aos materiais utilizados.
+Esta mesa poderá utilizar elementos, regras e referências do universo de Dungeons & Dragons dentro dos limites permitidos para conteúdos criados pela comunidade e para uso não comercial.<br>
+Dungeons & Dragons e D&D são propriedades intelectuais de seus respectivos detentores de direitos. Esta é uma iniciativa independente, gratuita e criada por fãs, sem afiliação oficial. <br>
+Crédito musical: A música <strong>“A Well-Earned Celebration”</strong>, composta por <strong>Evan Call</strong>, é utilizada neste projeto exclusivamente para fins de ambientação e entretenimento da campanha. Todos os direitos autorais e créditos referentes à obra pertencem aos seus respectivos detentores.
+            </p>
+        </section>
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
