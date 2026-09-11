@@ -576,3 +576,55 @@ input[type="radio"] {
     html { scroll-behavior: auto; }
     .tela-inicial, .simbolo-entrada, .moldura, .pagina, .questionario { transition: none; }
 }
+
+/* =========================================
+   CONTROLE DA MÚSICA
+========================================= */
+.botao-musica {
+    position: fixed;
+    top: clamp(14px, 2.5vw, 28px);
+    right: clamp(14px, 2.5vw, 28px);
+    z-index: 100;
+    width: clamp(48px, 7vw, 78px);
+    height: clamp(48px, 7vw, 78px);
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.botao-musica img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.botao-musica:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 8px rgba(238, 35, 41, 0.35));
+}
+
+.botao-musica:active {
+    transform: scale(0.96);
+}
+
+.botao-musica:focus-visible {
+    outline: 1px solid #c00000;
+    outline-offset: 5px;
+}
+
+@media (max-width: 600px) {
+    .botao-musica {
+        top: 12px;
+        right: 12px;
+        width: 52px;
+        height: 52px;
+    }
+}
