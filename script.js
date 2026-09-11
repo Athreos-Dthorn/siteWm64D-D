@@ -2,6 +2,46 @@ const telaInicial = document.getElementById("telaInicial");
 const simboloEntrada = document.getElementById("simboloEntrada");
 const musica = document.getElementById("musica");
 musica.volume = 0.4;
+
+const botaoMusica = document.getElementById("botaoMusica");
+const iconeMusica = document.getElementById("iconeMusica");
+
+function atualizarBotaoMusica() {
+    const ligada = !musica.paused && !musica.muted;
+
+    iconeMusica.src = ligada
+        ? "img/musica-ligada.png"
+        : "img/musica-bloqueada.png";
+
+    iconeMusica.alt = ligada
+        ? "Música ligada"
+        : "Música bloqueada";
+
+    botaoMusica.setAttribute("aria-label",
+        ligada ? "Desligar música" : "Ligar música");
+
+    botaoMusica.setAttribute("aria-pressed", ligada ? "false" : "true");
+}
+
+botaoMusica.addEventListener("click", function () {
+    if (musica.paused || musica.muted) {
+        musica.muted = false;
+        musica.play().then(function () {
+            atualizarBotaoMusica();
+        }).catch(function (erro) {
+            console.log("Não foi possível iniciar a música:", erro);
+        });
+    } else {
+        musica.pause();
+        atualizarBotaoMusica();
+    }
+});
+
+musica.addEventListener("play", atualizarBotaoMusica);
+musica.addEventListener("pause", atualizarBotaoMusica);
+musica.addEventListener("volumechange", atualizarBotaoMusica);
+
+atualizarBotaoMusica();
 const conteudo = document.getElementById("conteudo");
 const checkbox = document.getElementById("consentimento");
 const botao = document.getElementById("botaoProsseguir");
@@ -130,7 +170,9 @@ simboloEntrada.addEventListener("click", function () {
 
     musica.currentTime = 14.5;
     // Inicia a música
-    musica.play().catch(function (erro) {
+    musica.play().then(function () {
+        atualizarBotaoMusica();
+    }).catch(function (erro) {
         console.log("Não foi possível iniciar a música:", erro);
     });
 
